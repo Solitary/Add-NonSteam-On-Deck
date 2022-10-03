@@ -15,8 +15,8 @@ Script creates temporary directory to present all installed flatpaks and system 
      - Create `/bin` directory in your `/home/deck` folder if necessary and put the script in there. 
   
  2. Set the script to be executable.
-     - Run command `chmod +x /home/deck/bin/add-to-steam-gui.sh`
-     - Enabling executable bit via right-click on the file in Dolphin file explorer and going to Properties > Permissions.
+     - Either run command `chmod +x /home/deck/bin/add-to-steam-gui.sh`
+     - Or enable executable bit via right-click on the file in Dolphin file explorer and going to Properties > Permissions.
  
  3. Add the script as non-Steam app in desktop mode Steam client. This will be the last time you will need to do it in desktop mode :)
      - After you sucessfully add it, you might want to change the Steam label of this app to something more clear, because by default Steam will give it the name of the file.
