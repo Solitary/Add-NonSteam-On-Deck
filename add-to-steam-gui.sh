@@ -15,7 +15,16 @@ rmdir $INSTALLED_APPS_DIR
 mkdir -p $INSTALLED_APPS_DIR
 for i in /var/lib/flatpak/app/*/current/active/export/share/applications/* /usr/share/applications/*; do
     name=`cat $i | grep -m 1 "^Name="`
-    ln -s $i $INSTALLED_APPS_DIR/"${name:5}"
+    name=${name:5} ### cut out "Name="
+    filename=$(basename "$i")
+    ### collect only .desktop files
+    if [[ $filename == *.desktop ]]; then
+        if [[ -e $INSTALLED_APPS_DIR/"${name}" ]]; then
+            ln -s $i $INSTALLED_APPS_DIR/"${name}_"${filename} ### unique names for duplicities
+        else
+            ln -s $i $INSTALLED_APPS_DIR/"${name}"
+        fi
+    fi    
 done
 
 ### let user select application to add to Steam
